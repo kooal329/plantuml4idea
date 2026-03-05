@@ -66,7 +66,9 @@ public class PlantUmlSettings implements PersistentStateComponent<PlantUmlSettin
     private String lastBundledVersion;
     private String defaultExportFileFormat = "PNG";
     private boolean usePageTitles = true;
-    private boolean useGrammar = true;
+    // The bundled grammar is intentionally conservative and quickly gets out of date with new PlantUML syntax.
+    // Keep it disabled by default so new keywords/features are not flagged as parse errors.
+    private boolean useGrammar = false;
     private boolean keywordHighlighting = true;
     private boolean insertPair = true;
 
