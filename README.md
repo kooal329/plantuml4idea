@@ -41,6 +41,20 @@ Contributors:
 3. Go to setting in IntelliJ for PlantUML
 4. Set PlantUML JAR to the folder containing jars you downloaded
 
+
+# Build and test locally
+
+Requirements:
+* JDK 17 (recommended for this project)
+
+Commands:
+* `./gradlew clean build` — full build + tests
+* `./gradlew buildPlugin` — build plugin zip artifact
+* `./gradlew runIde` — run sandbox IDE with this plugin for manual testing
+
+If you see `What went wrong: 25` on `buildPlugin`, you are likely running with a newer JDK against an older Gradle wrapper.
+This repository uses Gradle wrapper 8.13; run using the project wrapper (`./gradlew`) and prefer JDK 17.
+
 # Developer notes
 
 * debug logs can be enabled by adding '#org.plantuml' and 'org.plantuml' to [Help | Debug Log Settings]
