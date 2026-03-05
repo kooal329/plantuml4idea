@@ -45,19 +45,15 @@ Contributors:
 # Build and test locally
 
 Requirements:
-* JDK 17+ for Gradle runtime (JDK 17 recommended)
-
-macOS quick setup for this terminal session:
-* `export JAVA_HOME=$(/usr/libexec/java_home -v 17)`
-* `java -version`
+* JDK 17 (recommended for this project)
 
 Commands:
 * `./gradlew clean build` — full build + tests
 * `./gradlew buildPlugin` — build plugin zip artifact
 * `./gradlew runIde` — run sandbox IDE with this plugin for manual testing
 
-If you see `What went wrong: 25` or a build failure during task graph calculation, run with `--stacktrace` to identify the exact failing plugin/task.
-Use the project wrapper (`./gradlew`) with JDK 17+ (JDK 17 recommended; JDK 25 is allowed).
+If you see `What went wrong: 25` on `buildPlugin`, you are likely running with a newer JDK against an older Gradle wrapper.
+This repository uses Gradle wrapper 8.13; run using the project wrapper (`./gradlew`) and prefer JDK 17.
 
 # Developer notes
 
