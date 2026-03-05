@@ -41,6 +41,24 @@ Contributors:
 3. Go to setting in IntelliJ for PlantUML
 4. Set PlantUML JAR to the folder containing jars you downloaded
 
+
+# Build and test locally
+
+Requirements:
+* JDK 17+ for Gradle runtime (JDK 17 recommended)
+
+macOS quick setup for this terminal session:
+* `export JAVA_HOME=$(/usr/libexec/java_home -v 17)`
+* `java -version`
+
+Commands:
+* `./gradlew clean build` — full build + tests
+* `./gradlew buildPlugin` — build plugin zip artifact
+* `./gradlew runIde` — run sandbox IDE with this plugin for manual testing
+
+If you see `What went wrong: 25` or a build failure during task graph calculation, run with `--stacktrace` to identify the exact failing plugin/task.
+Use the project wrapper (`./gradlew`) with JDK 17+ (JDK 17 recommended; JDK 25 is allowed).
+
 # Developer notes
 
 * debug logs can be enabled by adding '#org.plantuml' and 'org.plantuml' to [Help | Debug Log Settings]
