@@ -13,6 +13,16 @@ plugins {
 group = providers.gradleProperty("pluginGroup").get()
 version = providers.gradleProperty("pluginVersion").get()
 
+
+val gradleRuntimeJavaVersion = JavaVersion.current()
+if (!gradleRuntimeJavaVersion.isCompatibleWith(JavaVersion.VERSION_17)) {
+    throw GradleException(
+        "Unsupported Gradle runtime JDK: ${System.getProperty("java.version")}. " +
+            "Run Gradle with JDK 17 or newer. " +
+            "Example: export JAVA_HOME=$(/usr/libexec/java_home -v 17)"
+    )
+}
+
 // Set the JVM language level used to build the project.
 kotlin {
     jvmToolchain(17)
